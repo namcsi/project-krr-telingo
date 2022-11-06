@@ -1,0 +1,3 @@
+% Your encoding here...
+#const n=19.
+
