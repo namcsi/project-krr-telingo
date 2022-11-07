@@ -62,6 +62,40 @@ true(finally,horizon) :- formula(finally).
 formula(F) :- formula(prev(F)).
 true(prev(F),T) :- true(F,T-1), formula(prev(F)), time(T), time(T-1).
 
+% wprev
+
+
+% next
+
+
+% wnext
+
+
+% eventually
+
+
+% eventually_before
+
+
+% always
+
+
+% always_before
+
+
+% until
+
+
+% release
+
+
+% while
+
+
+% since
+
+
+% trigger
 
 %
 % Defined predicates

@@ -97,7 +97,6 @@ true(prev(F),T) :- true(F,T-1), formula(prev(F)), time(T), time(T-1).
 
 % trigger
 
-
 %
 % Defined predicates
 %
