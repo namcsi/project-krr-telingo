@@ -7,14 +7,14 @@ meta-telingo implementation.
 ## telingo
 
 The telingo directory contains some examples part of the telingo
-distribution. Se the readme.md files for explanations of the problems,
+distribution. See the readme.md files for explanations of the problems,
 as well as instructions on how to run them.
 
 ## meta-telingo
 
 The meta-telingo directory mirrors the structure of the telingo
 directory, and will be filled up by students with translations of the
-telingo problem to meta telingo. For an example of how to do the
+telingo problem to meta-telingo. For an example of how to do the
 translation, see the river-crossing directory, which has already been
 translated.
 
