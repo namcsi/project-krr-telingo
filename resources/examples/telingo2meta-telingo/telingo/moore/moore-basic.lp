@@ -19,8 +19,7 @@ holds(r(P),0) :- process(P).
 
 #program dynamic.
 
-%1 {fetch(P): _process(P)} 1.
-{fetch(P,I):_instruction(I)} 1 :- _process(P).
+{ fetch(P,I) } :- _process(P), 'holds(i(P),I).
 fetch(P) :- fetch(P,I).
 :- fetch(P,I), not _local(I), fetch(Q), P!=Q.
 :- #count{P:fetch(P)}=0.
@@ -37,5 +36,5 @@ holds(F,V) :- 'holds(F,V), not change(F,_).
 #program final.
 :- not _testing, not holds(c,n).
 
-#show fetch/1.
-%% #show holds/2.
+#show fetch/2.
+#show holds/2.
