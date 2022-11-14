@@ -54,13 +54,16 @@ formula(O) :- output(O,_).
 
 % initially
 true(initially,0) :- formula(initially).
+:- true(initially,T), T>0, formula(initially).
 
 % finally
 true(finally,horizon) :- formula(finally).
+:- true(finally,T), T<horizon, formula(finally).
 
 % prev
 formula(F) :- formula(prev(F)).
 true(prev(F),T) :- true(F,T-1), formula(prev(F)), time(T), time(T-1).
+:- true(prev(F),0), formula(prev(F)).
 
 % wprev
 
@@ -72,6 +75,9 @@ true(prev(F),T) :- true(F,T-1), formula(prev(F)), time(T), time(T-1).
 
 
 % eventually
+formula(F) :- formula(eventually(F)).
+true(F,TT) : time(TT), TT>=T :- true(eventually(F),T),  formula(eventually(F)), time(T).
+true(eventually(F),T)  :- time(TT), TT>=T, true(F,TT),  formula(eventually(F)), time(T).
 
 
 % eventually_before
@@ -84,6 +90,18 @@ true(prev(F),T) :- true(F,T-1), formula(prev(F)), time(T), time(T-1).
 
 
 % until
+formula(F) :- formula(until(F,G)).
+formula(G) :- formula(until(F,G)).
+
+% insert rules below to handle head and body occurance of until/2.
+
+% hint: using Kamp's translation, until is defined as
+% [until(A,B)]k: ∃x(k≤x ∧ [B]x ∧ ∀y(k≤y ∧ y<x → [A]y))
+% define auxiliary predicate  true(until(A,B),K,X) to have
+% the same truth value as (k≤x ∧ [B]x ∧ ∀y(k≤y ∧ y<x → [A]y))
+
+% Then, for body rule derive true(until(A,B),K) from true(until(A,B),K,X).
+% And for head rule, encode ∃x: true(until(A,B),K,X) using disjunction.
 
 
 % release
@@ -96,6 +114,14 @@ true(prev(F),T) :- true(F,T-1), formula(prev(F)), time(T), time(T-1).
 
 
 % trigger
+
+%
+% Boolean operators to be used in nested formulas
+%
+
+% negation
+
+% and
 
 %
 % Defined predicates
