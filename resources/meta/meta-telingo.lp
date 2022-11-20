@@ -62,6 +62,7 @@ true(finally,horizon) :- formula(finally).
 
 % prev
 formula(F) :- formula(prev(F)).
+true(F,T-1) :- true(prev(F),T), formula(prev(F)), time(T), time(T-1).
 true(prev(F),T) :- true(F,T-1), formula(prev(F)), time(T), time(T-1).
 :- true(prev(F),0), formula(prev(F)).
 
