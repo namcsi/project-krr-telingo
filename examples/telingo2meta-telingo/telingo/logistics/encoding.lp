@@ -52,5 +52,3 @@ at(P,L) :- in(P,V), at(V,L).
 #program final.
 :- _goal_at(P,L), not at(P,L), not _testing.
 :- _goal_at(P,L), loaded(P),   not _testing.
-
-
