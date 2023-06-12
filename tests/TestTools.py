@@ -9,7 +9,7 @@ import regex
 # is.
 
 # The Path to your Meta Encoding, from where you run the unittest
-PATH_TO_META_ENCODING = Path("./resources/meta/meta-telingo.lp")
+PATH_TO_META_ENCODING = Path("meta/meta-telingo.lp")
 
 
 def CheckIfOutputIsCorrect(test: unittest.TestCase, result: str,

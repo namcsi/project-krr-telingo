@@ -83,7 +83,7 @@ formula(F) :- formula(eventually(F)).
 % hint: to handle occurances of eventually(F) in the body, we can use
 % a conditional literal that ranges over the possible time points in
 % which we will derive F to be true
-/
+
 % eventually_before
 
 
